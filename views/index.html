@@ -216,7 +216,13 @@ pre {
 
 <section class='container'>
           <hgroup>
-            <h1>Welcome to your Node.js application on OpenShift <%=hostName%></h1>
+            <h1>Welcome to your Node.js application on OpenShift 
+            <% if (hostName.contains('Blue') {%>
+              Blue
+            <%} else if (hostName.contains('Green') {%>
+              Green
+            <%} %>
+            </h1>
           </hgroup>
 
 
