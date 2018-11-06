@@ -1,7 +1,8 @@
 //  OpenShift sample Node application
 var express = require('express'),
     app     = express(),
-    morgan  = require('morgan');
+    morgan  = require('morgan'),
+    os      = require('os');
     
 Object.assign=require('object-assign')
 
@@ -74,6 +75,8 @@ var initDb = function(callback) {
 };
 
 app.get('/', function (req, res) {
+  var hostname = os.hostname();
+    
   // try to initialize the db on every request if it's not already
   // initialized.
   if (!db) {
@@ -87,10 +90,10 @@ app.get('/', function (req, res) {
       if (err) {
         console.log('Error running count. Message:\n'+err);
       }
-      res.render('index.html', { pageCountMessage : count, dbInfo: dbDetails });
+      res.render('index.html', { pageCountMessage : count, dbInfo: dbDetails, hostName : hostname });
     });
   } else {
-    res.render('index.html', { pageCountMessage : null});
+    res.render('index.html', { pageCountMessage : null, hostName : hostname});
   }
 });
 
