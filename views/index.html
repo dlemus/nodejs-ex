@@ -216,10 +216,10 @@ pre {
 
 <section class='container'>
           <hgroup>
-            <h1>Welcome to your Node.js application on OpenShift 
-            <% if (hostName.contains('Blue') {%>
+            <h1>Welcome to your Node.js application on OpenShift
+            <% if (hostName.indexOf('Blue') > -1) {%>
               Blue
-            <%} else if (hostName.contains('Green') {%>
+            <%} else if (hostName.indexOf('Green') > -1) {%>
               Green
             <%} %>
             </h1>
